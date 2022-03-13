@@ -1,0 +1,21 @@
+apiVersion: skaffold/v2beta26
+kind: Config
+metadata:
+  name: pod-watcher
+build:
+  # tagPolicy:
+  #   gitCommit:
+  #     variant: Tags
+  artifacts:
+    - image: pod-watcher
+      docker:
+        dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+      # - skaffold/pod.yaml
+      - skaffold/deployment.yaml
+      - skaffold/serviceaccount.yaml
+      # - skaffold/secret.yaml
+      - skaffold/rbac.yaml
+  kubeContext: minikube
