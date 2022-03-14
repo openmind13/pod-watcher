@@ -3,9 +3,9 @@ kind: Config
 metadata:
   name: pod-watcher
 build:
-  # tagPolicy:
-  #   gitCommit:
-  #     variant: Tags
+  tagPolicy:
+    gitCommit:
+      variant: Tags
   artifacts:
     - image: pod-watcher
       docker:
@@ -13,9 +13,8 @@ build:
 deploy:
   kubectl:
     manifests:
-      # - skaffold/pod.yaml
       - skaffold/deployment.yaml
-      - skaffold/serviceaccount.yaml
-      # - skaffold/secret.yaml
-      - skaffold/rbac.yaml
+      # - skaffold/serviceaccount.yaml
+      # - skaffold/rolebinding.yaml
+      # - skaffold/role.yaml
   kubeContext: minikube

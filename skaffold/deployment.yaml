@@ -15,7 +15,7 @@ spec:
       labels:
         app.kubernetes.io/name: pod-watcher
     spec:
-      # serviceAccount: pod-watcher
+      serviceAccount: pod-watcher
       containers:
         - name: pod-watcher
           image: pod-watcher

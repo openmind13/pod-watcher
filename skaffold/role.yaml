@@ -6,6 +6,8 @@ metadata:
 rules:
   - apiGroups:
       - "apps"
+      - "core"
+      - ""
     verbs:
       - get
       - create
@@ -18,3 +20,4 @@ rules:
     resources:
       - pods
       - deployments
+      - daemonsets
